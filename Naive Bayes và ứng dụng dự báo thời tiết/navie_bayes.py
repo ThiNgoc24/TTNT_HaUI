@@ -19,19 +19,19 @@ p_no = len(df[df['Rain']=='No'])/len(df)
 def p_x_c_yes(t,w,m):
     res=[]
     k=1
-    res.append(len(df[df['Temp']==t])/len(df[df['Rain']=='Yes']))
-    res.append(len(df[df['Wind']==w])/len(df[df['Rain']=='Yes']))
-    res.append(len(df[df['Moisture']==m])/len(df[df['Rain']=='Yes']))
+    res.append(len(df[df['Rain']=='Yes'][df['Temp']==t])/len(df[df['Rain']=='Yes']))
+    res.append(len(df[df['Rain']=='Yes'][df['Wind']==w])/len(df[df['Rain']=='Yes']))
+    res.append(len(df[df['Rain']=='Yes'][df['Moisture']==m])/len(df[df['Rain']=='Yes']))
     for i in res:
         k=k*i
-    return k 
+    return k
 
 def p_x_c_no(t,w,m):
     res=[]
     k=1
-    res.append(len(df[df['Temp']==t])/len(df[df['Rain']=='No']))
-    res.append(len(df[df['Wind']==w])/len(df[df['Rain']=='No']))
-    res.append(len(df[df['Moisture']==m])/len(df[df['Rain']=='No']))
+    res.append(len(df[df['Rain']=='No'][df['Temp']==t])/len(df[df['Rain']=='No']))
+    res.append(len(df[df['Rain']=='No'][df['Wind']==w])/len(df[df['Rain']=='No']))
+    res.append(len(df[df['Rain']=='No'][df['Moisture']==m])/len(df[df['Rain']=='No']))
     for i in res:
         k=k*i
     return k
